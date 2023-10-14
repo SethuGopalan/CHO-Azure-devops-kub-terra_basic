@@ -24,6 +24,7 @@ stages:
       - task: Docker@2
         inputs:
           containerRegistry: '7797-docker-kuber'
+          repository: '7797/Hello-app-Docker-Image'
           command: 'buildAndPush'
           Dockerfile: '**/Dockerfile'
           tags: '$(tag)'
