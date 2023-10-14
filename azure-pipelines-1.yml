@@ -19,13 +19,13 @@ steps:
 - task: TerraformCLI@1
   inputs:
     command: 'init'
-    commandOptions: '''-var.client_id=$(client_id) -var.client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'''
+    commandOptions: '-var.client_id=$(client_id) -var.client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'Azure-Kubernetes'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
     backendAzureRmResourceGroupLocation: 'East US'
-    backendAzureRmStorageAccountName: 'storageaccountsethudocker7797'
+    backendAzureRmStorageAccountName: 'storageaccountsethud7797'
     backendAzureRmContainerName: 'storageaccount7797container'
     backendAzureRmKey: 'kebernets-dev.tfstate'
     allowTelemetryCollection: true
