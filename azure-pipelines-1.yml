@@ -19,7 +19,7 @@ steps:
 - task: TerraformCLI@1
   inputs:
     command: 'init'
-    commandOptions: '-var.client_id=$(client_id) -var.client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    commandOptions: '-reconfigure  -var.client_id=$(client_id) -var.client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'Azure-Kubernetes'
     ensureBackend: true
