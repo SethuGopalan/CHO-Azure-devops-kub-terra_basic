@@ -23,7 +23,7 @@ stages:
           dockerVersion: '17.09.0-ce'
       - task: Docker@2
         inputs:
-          containerRegistry: '7797-docker-azurepipe'
+          containerRegistry: '7797-docker-kuber'
           command: 'buildAndPush'
           Dockerfile: '**/Dockerfile'
           tags: '$(tag)'
