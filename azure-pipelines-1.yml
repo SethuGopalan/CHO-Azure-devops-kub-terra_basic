@@ -33,5 +33,5 @@ steps:
   inputs:
     command: 'apply'
     environmentServiceName: 'Azure-Kubernetes'
-    commandOptions: '-backend-config=client_id=$(client_id) -backend-config=client_secret=$(client_secret) -backend-config=ssh_public_key=$(publickey.secureFilePath)'
+    commandOptions: '-auto-approve'
     allowTelemetryCollection: true
