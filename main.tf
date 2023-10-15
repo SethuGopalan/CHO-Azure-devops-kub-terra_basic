@@ -12,16 +12,18 @@ provider "azurerm" {
   skip_provider_registration = true # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
 }
-resource "azurerm_resource_group" "aks" {
+resource "azurerm_resource_group" "resource_group" {
   name     = "terraform-backend-rg"
   location = "East US"
+ 
+
 }
 
-resource "azurerm_kubernetes_cluster" "aks" {
+resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   name                = "myAKSCluster"
-  location            = azurerm_resource_group.aks.location
-  resource_group_name = azurerm_resource_group.aks.name
-  dns_prefix          = "myaksdns"
+  location            = azurerm_resource_group.resource_group.location
+  resource_group_name = azurerm_resource_group.resource_group.name
+  dns_prefix          = "terraform-k8sdns"
 
   default_node_pool {
     name       = "default"
