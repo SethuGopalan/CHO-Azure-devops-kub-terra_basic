@@ -29,26 +29,26 @@ steps:
     backendAzureRmContainerName: 'storageaccount7797container'
     backendAzureRmKey: 'kebernetes-dev.tfstate'
     allowTelemetryCollection: true
-# - task: TerraformCLI@1
-#   inputs:
-#     command: 'validate'
-#     environmentServiceName: 'Azure-Kubernetes'
-#     # commandOptions: '-auto-approve'
-#     allowTelemetryCollection: true
-# - task: TerraformCLI@1
-#   inputs:
-#     command: 'plan'
-#     environmentServiceName: 'Azure-Kubernetes'
-#     # commandOptions: '-auto-approve'
-#     allowTelemetryCollection: true
+- task: TerraformCLI@1
+  inputs:
+    command: 'validate'
+    environmentServiceName: 'Azure-Kubernetes'
+    # commandOptions: '-auto-approve'
+    allowTelemetryCollection: true
+- task: TerraformCLI@1
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'Azure-Kubernetes'
+    # commandOptions: '-auto-approve'
+    allowTelemetryCollection: true
 - task: TerraformCLI@1
   inputs:
     command: 'apply'
     environmentServiceName: 'Azure-Kubernetes'
     # commandOptions: '-auto-approve'
     allowTelemetryCollection: true
-- task: TerraformCLI@1
-  inputs:
-    command: 'destroy'
-    environmentServiceName: 'Azure-Kubernetes'
-    allowTelemetryCollection: true
+# - task: TerraformCLI@1
+#   inputs:
+#     command: 'destroy'
+#     environmentServiceName: 'Azure-Kubernetes'
+#     allowTelemetryCollection: true
