@@ -31,6 +31,12 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+# copy file 
+    - task: CopyFiles@2
+      inputs:
+         SourceFolder: '$(System.DefaultWorkingDirectory)'
+         Contents: '**/*. yaml'
+         TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # build and publish artifact
     - task: PublishBuildArtifacts@1
       inputs:
