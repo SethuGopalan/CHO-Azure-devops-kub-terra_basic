@@ -16,7 +16,7 @@ spec:
       - name: python-app-container
         image: 7797/hello-app-docker-image
         ports:
-        - containerPort: 80
+        - containerPort: 8000
       # imagePullSecrets:
       # - name: <your-secrets> # If you have secret for ACR
 ---
@@ -29,6 +29,6 @@ spec:
     app: python-app
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8000
+      targetPort: 8000
   type: LoadBalancer
