@@ -55,5 +55,5 @@ stages:
         connectionType: 'kubernetesServiceConnection'
         kubernetesServiceConnection: 'Azure-kubernetes-connection'
         namespace: 'default'
-        manifests: '$(Build.ArtifactStagingDirectory)/kubernetes'
+        manifests: '$(Build.ArtifactStagingDirectory)/kubernetes/deployment.yaml'
         containers: '7797/hello-app-docker-image:$(tag)'
