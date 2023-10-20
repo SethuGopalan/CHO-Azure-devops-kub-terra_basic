@@ -2,11 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: python-app-deployment
+  namespace: default
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: python-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -15,6 +21,7 @@ spec:
       containers:
       - name: python-app-container
         image: 7797/hello-app-docker-image
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
       # imagePullSecrets:
