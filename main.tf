@@ -12,6 +12,12 @@ provider "azurerm" {
   skip_provider_registration = true # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
 }
+variable "ssh_public_key" {
+  description = "Path to the SSH public key file"
+  type        = string
+  default     = "/Azure/azure_rsa.pub" # Provide the correct path to your SSH public key
+}
+
 resource "azurerm_resource_group" "resource_group" {
   name     = "terraform-backend-rg"
   location = "East US"
