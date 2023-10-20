@@ -35,7 +35,7 @@ stages:
     - task: CopyFiles@2
       inputs:
          SourceFolder: '$(System.DefaultWorkingDirectory)'
-         Contents: '**/*. yaml'
+         Contents: '**/*.yaml'
          TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # build and publish artifact
     - task: PublishBuildArtifacts@1
