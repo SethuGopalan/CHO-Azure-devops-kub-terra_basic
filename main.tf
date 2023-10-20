@@ -12,11 +12,11 @@ provider "azurerm" {
   skip_provider_registration = true # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
 }
-variable "ssh_public_key" {
-  description = "Path to the SSH public key file"
-  type        = string
-  default     = "/Azure/azure_rsa.pub" # Provide the correct path to your SSH public key
-}
+# variable "ssh_public_key" {
+#   description = "Path to the SSH public key file"
+#   type        = string
+#   default     = "/Azure/azure_rsa.pub" # Provide the correct path to your SSH public key
+# }
 
 resource "azurerm_resource_group" "resource_group" {
   name     = "terraform-backend-rg"
@@ -30,13 +30,13 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   dns_prefix          = "terraform-k8sdns"
-  linux_profile {
-    admin_username = "ubuntu"
+  # linux_profile {
+  #   admin_username = "ubuntu"
 
-    ssh_key {
-      key_data = file(ssh_public_key)
-    }
-  }
+  #   ssh_key {
+  #     key_data = file(ssh_public_key)
+  #   }
+  # }
 
   default_node_pool {
     name       = "default"
