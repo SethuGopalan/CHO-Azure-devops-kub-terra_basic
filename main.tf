@@ -24,6 +24,13 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   dns_prefix          = "terraform-k8sdns"
+  linux_profile {
+    admin_username = "ubuntu"
+
+    ssh_key {
+      key_data = file(ssh_public_key)
+    }
+  }
 
   default_node_pool {
     name       = "default"
